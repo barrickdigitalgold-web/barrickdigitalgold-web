@@ -1,0 +1,203 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Dark Elegant Theme - Matching Reference */
+    --background: 0 0% 4%;
+    --foreground: 0 0% 95%;
+
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 95%;
+
+    /* Royal Gold Primary - D4AF37 */
+    --primary: 43 74% 52%;
+    --primary-foreground: 0 0% 4%;
+    --primary-glow: 43 90% 65%;
+    --primary-dark: 43 80% 42%;
+    
+    /* Deep Dark */
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 95%;
+
+    /* Muted Dark */
+    --muted: 0 0% 17%;
+    --muted-foreground: 0 0% 65%;
+
+    /* Champagne Gold Accent */
+    --accent: 38 90% 70%;
+    --accent-foreground: 0 0% 4%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 95%;
+
+    --border: 0 0% 25%;
+    --input: 0 0% 25%;
+    --ring: 43 74% 52%;
+
+    --radius: 1rem;
+
+    /* Success State - Emerald */
+    --success: 158 64% 42%;
+    --success-foreground: 0 0% 4%;
+
+    /* Custom Gradients */
+    --gradient-gold: linear-gradient(135deg, hsl(43, 74%, 52%), hsl(43, 90%, 65%));
+    --gradient-dark: linear-gradient(180deg, hsl(0, 0%, 4%), hsl(0, 0%, 8%));
+    --gradient-hero: linear-gradient(180deg, hsl(0, 0%, 4%) 0%, hsl(0, 0%, 6%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0, 0%, 6%), hsl(0, 0%, 10%));
+    
+    /* Luxury Shadows */
+    --shadow-gold: 0 10px 50px -10px hsl(43 74% 52% / 0.4);
+    --shadow-gold-lg: 0 20px 80px -15px hsl(43 74% 52% / 0.5);
+    --shadow-elegant: 0 25px 70px -15px hsl(0 0% 0% / 0.6);
+    --shadow-royal: 0 15px 60px -10px hsl(0 0% 5% / 0.8);
+    
+    /* Sidebar */
+    --sidebar-background: 0 0% 8%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 43 74% 52%;
+    --sidebar-primary-foreground: 0 0% 4%;
+    --sidebar-accent: 0 0% 12%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 0 0% 25%;
+    --sidebar-ring: 43 74% 52%;
+  }
+
+  .dark {
+    --background: 0 0% 4%;
+    --foreground: 0 0% 95%;
+
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 43 74% 52%;
+    --primary-foreground: 0 0% 4%;
+    --primary-glow: 43 90% 65%;
+
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 95%;
+
+    --muted: 0 0% 17%;
+    --muted-foreground: 0 0% 65%;
+
+    --accent: 38 90% 70%;
+    --accent-foreground: 0 0% 4%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 95%;
+
+    --border: 0 0% 25%;
+    --input: 0 0% 25%;
+    --ring: 43 74% 52%;
+
+    --success: 158 64% 42%;
+    --success-foreground: 0 0% 4%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    background: linear-gradient(180deg, hsl(0, 0%, 4%) 0%, hsl(0, 0%, 6%) 100%);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer utilities {
+  .gradient-gold {
+    background: var(--gradient-gold);
+  }
+  
+  .gradient-royal {
+    background: var(--gradient-royal);
+  }
+  
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+  
+  .gradient-card {
+    background: var(--gradient-card);
+  }
+  
+  .shadow-gold {
+    box-shadow: var(--shadow-gold);
+  }
+  
+  .shadow-gold-lg {
+    box-shadow: var(--shadow-gold-lg);
+  }
+  
+  .shadow-elegant {
+    box-shadow: var(--shadow-elegant);
+  }
+  
+  .shadow-royal {
+    box-shadow: var(--shadow-royal);
+  }
+  
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      hsl(var(--primary-glow) / 0.2),
+      transparent
+    );
+    animation: shimmer 2.5s infinite;
+  }
+  
+  .gold-glow {
+    box-shadow: 0 0 20px hsl(var(--primary-glow) / 0.3),
+                0 0 40px hsl(var(--primary-glow) / 0.2);
+  }
+  
+  .hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-gold-lg);
+  }
+  
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+  
+  @keyframes glow-pulse {
+    0%, 100% {
+      box-shadow: 0 0 20px hsl(var(--primary-glow) / 0.3);
+    }
+    50% {
+      box-shadow: 0 0 40px hsl(var(--primary-glow) / 0.5);
+    }
+  }
+  
+  .animate-glow {
+    animation: glow-pulse 3s ease-in-out infinite;
+  }
+}
